@@ -1,0 +1,23 @@
+{
+  "name": "s7__crypto__2025__m5",
+  "version": "1.0.0",
+  "description": "Solidity development environment with Hardhat",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "node": "hardhat node"
+  },
+  "keywords": [
+    "solidity",
+    "hardhat",
+    "ethereum",
+    "smart-contracts"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.27.0"
+  }
+}
