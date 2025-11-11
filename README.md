@@ -1,11 +1,12 @@
 # s7__crypto__2025__m5
 
-A Solidity development environment using Hardhat for smart contract development, testing, and deployment.
+A Solidity development environment using Hardhat for smart contract development and deployment to Blast Sepolia network.
 
 ## Prerequisites
 
 - Node.js (v14 or higher)
 - npm
+- A wallet with Blast Sepolia testnet ETH
 
 ## Installation
 
@@ -15,14 +16,29 @@ Install dependencies:
 npm install
 ```
 
+## Configuration
+
+Create a `.env` file in the root directory with your private key:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and add your private key:
+
+```
+PRIVATE_KEY=your_private_key_here
+```
+
+**⚠️ Warning:** Never commit your `.env` file or share your private key!
+
 ## Project Structure
 
 ```
 .
 ├── contracts/          # Solidity smart contracts
 ├── scripts/           # Deployment scripts
-├── test/              # Test files
-├── hardhat.config.js  # Hardhat configuration
+├── hardhat.config.js  # Hardhat configuration with Blast Sepolia network
 └── package.json       # Project dependencies and scripts
 ```
 
@@ -34,12 +50,6 @@ npm install
 npm run compile
 ```
 
-### Run Tests
-
-```bash
-npm test
-```
-
 ### Run Hardhat Node
 
 Start a local Ethereum network:
@@ -48,12 +58,18 @@ Start a local Ethereum network:
 npm run node
 ```
 
-### Deploy Contracts
+### Deploy to Blast Sepolia
 
-Deploy to local network:
+Deploy contracts to Blast Sepolia testnet:
 
 ```bash
-npx hardhat run scripts/deploy.js --network localhost
+npm run deploy:blast-sepolia
+```
+
+Or using hardhat directly:
+
+```bash
+npx hardhat run scripts/deploy.js --network blastSepolia
 ```
 
 ### Other Hardhat Commands
@@ -62,8 +78,16 @@ npx hardhat run scripts/deploy.js --network localhost
 npx hardhat help
 npx hardhat accounts
 npx hardhat clean
-npx hardhat coverage
 ```
+
+## Networks
+
+### Blast Sepolia Testnet
+- **RPC URL:** https://sepolia.blast.io
+- **Chain ID:** 168587773
+- **Block Explorer:** https://testnet.blastscan.io
+
+To get Blast Sepolia testnet ETH, visit the Blast Sepolia faucet.
 
 ## Sample Contract
 
@@ -72,14 +96,6 @@ The project includes a sample `Lock` contract that demonstrates:
 - Payable constructors
 - Event emissions
 - Access control
-
-## Testing
-
-The test suite uses:
-- Mocha test framework
-- Chai assertions
-- Hardhat Network Helpers for time manipulation
-- Ethers.js for contract interactions
 
 ## Contributing
 
